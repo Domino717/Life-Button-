@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Life Button</title>
+  <link rel="manifest" href="manifest.json" />
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+    .button {
+      margin-top: 30vh;
+      padding: 20px 40px;
+      font-size: 24px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button class="button" onclick="makeDecision()">Life Button</button>
+  <h2 id="decision"></h2>
+  <script>
+    const options = ["Yes", "No", "Maybe", "Try again", "Later", "Definitely"];
+    function makeDecision() {
+      const result = options[Math.floor(Math.random() * options.length)];
+      document.getElementById("decision").innerText = result;
+    }
+  </script>
+</body>
+</html>
